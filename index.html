@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+
+        var options = [
+                set0 = ['Option 1','Option 2'],
+                set1 = ['First Option','Second Option','Third Option']
+            ];
+
+        function makeUL(array) {
+            // Create the list element:
+            var list = document.createElement('ul');
+
+            for (var i = 0; i < array.length; i++) {
+                // Create the list item:
+                var item = document.createElement('li');
+
+                // Set its contents:
+                item.appendChild(document.createTextNode(array[i]));
+
+                // Add it to the list:
+                list.appendChild(item);
+            }
+
+            // Finally, return the constructed list:
+            return list;
+        }
+
+       function myFunction() {
+                   // Add the contents of options[0] to #foo:
+            document.getElementById('arrayDiv').appendChild(makeUL(options[0]));
+       }
+
+        function ageValidation() {
+             var a = document.getElementById('txtAge').value;
+             if (a < 18 || a > 100){
+                alert("insert age between 18 to 100")
+             }
+        }
+
+        var persons = [
+            new Person(name = "Anton M", age = 35, sex="M"),
+            new Person(name = "Ilona K", age = 15, sex="M"),
+            new Person(name = "Ivar B", age = 7, sex="M"),
+            new Person(name = "Arman Har", age = 120, sex="M")
+        ];
+
+        function filterNonAdultPerson( array ) {
+                var list = document.createElement('ul');
+
+            for (var i = 0; i < array.length; i++) {
+
+                person = array[i];
+                if (person.age >= 18 ) {
+                    var item = document.createElement('li');
+
+                    // Set its contents:
+                     item.appendChild(document.createTextNode("Person name: "  + person.name + "; person age: " + person.age + "; person sex: " + person.sex));
+
+                    // Add it to the list:
+                    list.appendChild(item);
+                }
+            }
+            // Finally, return the constructed list:
+            return list;
+        }
+
+       function myFunction2() {
+            document.getElementById('arrayDiv2').appendChild( filterNonAdultPerson( persons ) );
+       }
+
+        function Person(name, age, sex) {
+          this.name = name;
+          this.age = age;
+          this.sex = sex;
+        }
+
+    </script>
+</head>
+<body>
+    <h2>Demo JavaScript in Head</h2>
+    <p><span>cycle build document elements. example build list </span></p>
+    <button type="button" onclick="myFunction()">Try build list</button>
+    <div id = "arrayDiv">
+    </div>
+
+    <p><span>filter data (persons) by age/ combine cycle and condition operator </span></p>
+    <button type="button" onclick="myFunction2()">Try filtered persons</button>
+
+    <div id = "arrayDiv2">
+    </div>
+
+    <p><span>type 17 in input and press submit? after that type some between 18 - 100 </span></p>
+    <p><span>it helps validate user input data </span></p>
+    <label>Insert Your Age: </label>
+    <input type="text" id="txtAge">
+    <button type="submit" onclick="ageValidation()">Submit</button>
+
+</body>
+
+</html>
