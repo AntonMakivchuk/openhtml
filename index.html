@@ -109,38 +109,22 @@
                 // creates a table row
                 const row = document.createElement("tr");
 
-                   var currency = data[i];
+                let currency = data[i];
 
-<!--                   {r030: 36, txt: 'Австралійський долар', rate: 23.4277, cc: 'AUD', exchangedate: '07.11.2023'}-->
+                let fieldName = 'r030';
+                createTableCell(row, currency, fieldName);
 
-                  // Create a <td> element and a text node, make the text
-                  // node the contents of the <td>, and put the <td> at
-                  // the end of the table row
-                  const cell = document.createElement("td");
-                  const cellText = document.createTextNode(currency.r030);
-                  cell.appendChild(cellText);
-                  row.appendChild(cell);
+                fieldName = 'txt';
+                createTableCell(row, currency, fieldName);
 
-                  const cell2 = document.createElement("td");
-                  const cellText2 = document.createTextNode(currency.txt);
-                  cell2.appendChild(cellText2);
-                  row.appendChild(cell2);
+                fieldName = 'rate';
+                createTableCell(row, currency, fieldName);
 
-                  const cell3 = document.createElement("td");
-                  const cellText3 = document.createTextNode(currency.rate);
-                  cell3.appendChild(cellText3);
-                  row.appendChild(cell3);
+                fieldName = 'cc';
+                createTableCell(row, currency, fieldName);
 
-                    const cell4 = document.createElement("td");
-                  const cellText4 = document.createTextNode(currency.cc);
-                  cell4.appendChild(cellText4);
-                  row.appendChild(cell4);
-
-                  const cell5 = document.createElement("td");
-                  const cellText5 = document.createTextNode(currency.exchangedate);
-                  cell5.appendChild(cellText5);
-                  row.appendChild(cell5);
-
+                fieldName = 'exchangedate';
+                createTableCell(row, currency, fieldName);
 
                 // add the row to the end of the table body
                 tblBody.appendChild(row);
@@ -152,6 +136,13 @@
               document.body.appendChild(tbl);
               // sets the border attribute of tbl to '2'
               tbl.setAttribute("border", "2");
+        }
+
+        function createTableCell(row, currency, propertyName) {
+              const cell = document.createElement("td");
+              const cellText = document.createTextNode(currency[propertyName]);
+              cell.appendChild(cellText);
+              row.appendChild(cell);
         }
 
     </script>
