@@ -111,21 +111,9 @@
 
                 let currency = data[i];
 
-                let fieldName = 'r030';
-                createTableCell(row, currency, fieldName);
-
-                fieldName = 'txt';
-                createTableCell(row, currency, fieldName);
-
-                fieldName = 'rate';
-                createTableCell(row, currency, fieldName);
-
-                fieldName = 'cc';
-                createTableCell(row, currency, fieldName);
-
-                fieldName = 'exchangedate';
-                createTableCell(row, currency, fieldName);
-
+                for (let property in currency) {
+                    createTableCell(row, currency, property);
+                }
                 // add the row to the end of the table body
                 tblBody.appendChild(row);
               }
